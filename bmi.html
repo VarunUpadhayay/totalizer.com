@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BMI calculator</title>
+	<link rel="icon" href="3.png" type="image/icon type">
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style1.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=David+Libre&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
+   
+  <link href="https://fonts.googleapis.com/css?family=Flamenco" rel="stylesheet">
+  
+ 
+</head>
+<body>
+<nav class="navbar navbar-expand-sm  navbar-dark  ">
+	<div class="container">
+
+<img src="3.png" class="logo">
+
+		<button class="navbar-toggler " data-toggle="collapse" data-target="#nv"  >
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="nv">
+     <ul class="navbar-nav ml-auto text-left animated slideInDown">
+        <li class="nav-items text-white">
+           <a href="index.html" class="nav-link text-white text-center"id="li2">HOME</a>
+        </li>
+		<li class="nav-items ">
+		   <a href="about.html" class="nav-link text-white  text-center" id="li2" >ABOUT US</a>
+		           
+		    
+  
+  
+        </li>
+         <li class="nav-items">
+           <a href="contact.html" class="nav-link text-white text-center" id="li2">CONTACT US</a>
+        </li>
+
+
+      </ul>
+	  </div>
+	  
+	  </div>
+
+
+</nav>
+
+
+	<div class="container container1  animated slideInLeft">
+		<div class="card text-white">
+			<div class="card-header text-center">
+				<b>BMI CALCULATOR</b>
+			</div>
+			<div class="card-body">
+				<form class="w-50 m-auto" onsubmit="return false">
+					<div class="form-group">
+						<label ><b>Weight</b></label>
+						<input type="number" name="" placeholder="Weight in kg" required  id="weight" class="form-control width">
+						
+					</div>
+
+					<div class="form-group">
+						<label><b>Height</b></label>
+						<input type="text" name="" placeholder="Height in feet" required  id="height" class="form-control width">
+						
+					</div>
+					<div class="form-group ">
+						<fieldset disabled>
+						<label><b>BMI Value</b></label>
+						<input  type="" name="" id="bmivalue" class="form-control error width">
+					</fieldset>
+						
+					</div>
+					<div>
+						<button type="submit" class="btn btn-lg btn-primary  text-uppercase " onclick="getbmivalue()"> Calculate</button>
+					</div>
+				</form>
+
+			</div>
+			<div class="card-footer text-center">A healthy BMI ranges between 19 and 25</div>
+			
+		</div>
+		
+
+	</div>
+
+<script>
+	
+	
+ function getbmivalue(){
+ 
+ 	var weight = document.getElementById('weight').value;
+	var height = document.getElementById('height').value;
+
+	height = height * 12;
+	height = height * 0.025;
+
+	var newbmivalue = weight/(height*height);
+
+	newbmivalue = Math.round(newbmivalue);
+
+	document.getElementById('bmivalue').value = newbmivalue;
+ }
+
+
+</script>
+
+
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

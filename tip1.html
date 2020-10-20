@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tip calculator</title>
+	<link rel="icon" href="3.png" type="image/icon type">
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style3.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=David+Libre&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Flamenco" rel="stylesheet">
+</head>
+<body>
+	<div>
+	<nav class="navbar navbar-expand-sm  navbar-dark  ">
+	<div class="container">
+
+<img src="3.png" class="logo">
+
+		<button class="navbar-toggler " data-toggle="collapse" data-target="#nv"  >
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="nv">
+     <ul class="navbar-nav ml-auto text-left animated slideInDown">
+        <li class="nav-items text-white">
+           <a href="index.html" class="nav-link text-white text-center">HOME</a>
+        </li>
+		<li class="nav-items ">
+		   <a href="about.html" class="nav-link text-white  text-center"  >ABOUT US</a>
+		           
+		   
+		  </li>
+
+         <li class="nav-items">
+           <a href="contact.html" class="nav-link text-white text-center" id="li2">CONTACT US</a>
+        </li>
+</nav>
+</div>
+
+        <div class="container container1 animated slideInDown">
+		<div class="card text-white">
+			<div class="card-header text-center">
+				<b>TIP CALCULATOR</b>
+			</div>
+			<div class="card-body">
+				<form class="w-50 m-auto" onsubmit="return false">
+					<div class="form-group">
+						<label ><b>How much was bill amount?</b></label>
+						<input type="number" name="" placeholder="Bill amount" required  id="billamt" class="form-control width">
+						
+					</div>
+
+					<div class="form-group">
+						<label ><b>How was the service?</b></label>
+                          
+						<select class="form-control width" id="serviceQual">
+							 <option value="0.3">30&#37; &#45; Outstanding</option>
+                             <option value="0.2">20&#37; &#45; Good</option>
+                             <option value="0.15">15&#37; &#45; It was OK</option>
+                             <option value="0.1">10&#37; &#45; Bad</option>
+                              <option value="0.05">5&#37; &#45; Terrible</option>
+						</select>
+						
+					</div>
+					<div class="form-group ">
+						<label><b>How many people are sharing the bill?</b></label>
+						<input  type="number" name="" placeholder="Number of people" id="peopleamt" class="form-control width">
+						
+					</div>
+					<div>
+						<button type="submit" class="btn btn-lg btn-primary  text-uppercase " id="calculate" > Calculate</button>
+					</div>
+				</form>
+
+			</div>
+			
+			
+		</div>
+		 <div id="totalTip" class="text-white  animated slideInLeft ">
+    <sup>₹</sup><span id="tip">0.00</span>
+    <small id="each">each</small>
+  </div>
+		
+
+	</div>
+
+<script >
+	
+	//Calculate Tip
+function calculateTip() {
+  var billAmt = document.getElementById("billamt").value;
+  var serviceQual = document.getElementById("serviceQual").value;
+  var numOfPeople = document.getElementById("peopleamt").value;
+
+  //validate input
+  if (billAmt === "" || serviceQual == 0) {
+    alert("Please enter values");
+    return;
+  }
+  //Check to see if this input is empty or less than or equal to 1
+  if (numOfPeople === "" || numOfPeople <= 1) {
+    numOfPeople = 1;
+    document.getElementById("each").style.display = "none";
+  } else {
+    document.getElementById("each").style.display = "block";
+  }
+
+  //Calculate tip
+  var total = ((billAmt * serviceQual) / numOfPeople)/(numOfPeople);
+  //round to two decimal places
+  total = Math.round(total);
+  //next line allows us to always have two digits after decimal point
+  total = total.toFixed(2);
+  //Display the tip
+  document.getElementById("totalTip").style.display = "block";
+  document.getElementById("tip").innerHTML = total;
+
+}
+
+//Hide the tip amount on load
+document.getElementById("totalTip").style.display = "none";
+document.getElementById("each").style.display = "none";
+
+
+//click to call function
+document.getElementById("calculate").onclick = function() {
+  calculateTip();
+
+};
+</script>
+
+     
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
